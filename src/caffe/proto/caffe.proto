@@ -322,7 +322,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 153 (last added: swish_param)
+// LayerParameter next available layer-specific ID: 154 (last added: swish_param)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -425,6 +425,7 @@ message LayerParameter {
   optional NormalizeParameter normalize_param = 150;
   optional L2NormalizationParameter l2normalization_param = 151;
   optional FocalLossParameter focal_loss_param = 152;
+  optional LabelSpecificAddParameter label_specific_add_param = 153;
 }
 
 // Message that stores parameters used to apply transformation
@@ -1474,4 +1475,15 @@ message FocalLossParameter {
   // cross-categories weights to solve the imbalance problem
   optional float alpha = 3 [default = 1.0]; 
   optional float beta  = 4 [default = 1.0];
+}
+
+message LabelSpecificAddParameter {
+  optional float bias = 1 [default = 0.0];
+  optional bool transform_test = 2 [default = false];
+  optional float bias_base = 3 [default = 0.0];
+  optional float bias_gamma = 4 [default = 0.0];
+  optional float bias_power = 5 [default = 1.0];
+  optional float bias_min = 6 [default =0.0];
+  optional float bias_max = 7 [default =0.0];
+  optional uint32 iteration = 8 [default = 0];
 }
