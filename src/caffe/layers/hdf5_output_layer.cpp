@@ -1,7 +1,8 @@
+#ifdef USE_HDF5
 #include <vector>
 
-#include "hdf5/serial/hdf5.h"
-#include "hdf5/serial/hdf5_hl.h"
+#include "hdf5.h"
+#include "hdf5_hl.h"
 
 #include "caffe/layers/hdf5_output_layer.hpp"
 #include "caffe/util/hdf5.hpp"
@@ -72,3 +73,4 @@ INSTANTIATE_CLASS(HDF5OutputLayer);
 REGISTER_LAYER_CLASS(HDF5Output);
 
 }  // namespace caffe
+#endif  // USE_HDF5
